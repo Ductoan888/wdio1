@@ -59,11 +59,11 @@ describe('Test project creation flow', () => {
         await $('button[type="submit"]').click();
         // await browser.pause(1000);
     });
-    it('HightlightError', async () => {
+    it('error message', async () => {
         await $('//*[contains(text(),"Dữ liệu đầu vào không hợp lệ")]').waitForExist();
-        const error = (await $('//*[contains(text(),"Dữ liệu đầu vào không hợp lệ")]')).click();
+        const error = await $('//*[contains(text(),"Dữ liệu đầu vào không hợp lệ")]');
         await highlightElement(error);
-    })
+    });
 });
 
 export async function handleDropdown(dropdownId: string, XPath: Selector | ElementReference[] | HTMLElement[]) {
